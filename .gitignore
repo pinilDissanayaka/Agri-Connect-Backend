@@ -1,2 +1,4 @@
 .env
 venv
+model_labels.pkl
+model.h5
