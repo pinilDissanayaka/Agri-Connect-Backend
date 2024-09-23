@@ -1,0 +1,12 @@
+uvicorn
+fastapi
+sqlalchemy
+python-dotenv
+passlib
+langchain
+langchain_community
+pinecone
+langchain_core
+unstructured
+langchain_groq
+rank_bm25
