@@ -14,3 +14,4 @@ tensorflow
 python-multipart
 mysql-connector-python
 bcrypt
+numpy

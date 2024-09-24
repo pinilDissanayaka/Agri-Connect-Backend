@@ -3,6 +3,7 @@ from schema.user import User
 from crud.user import createUser, getUserByUserName
 from utils.prediction import makePrediction
 from utils.chain import get_solution
+from utils.crop_recommendation import recommend_crop
 
 app=FastAPI()
 
@@ -46,3 +47,18 @@ async def prediction(imageFile: UploadFile):
     else:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
                             detail="Bad request")
+        
+@app.post("/crop-recommendation", tags=["User"])
+async def crop_recommendation(n:float, p:float, k:float, temp:float, hum:float, ph:float, rf:float):
+    
+    recommended_crop=recommend_crop(n=n, p=p, k=k, temp=temp, hum=hum, ph=ph, rf=rf)
+    
+    if recommended_crop:
+        return {
+            "detail":"crop recommendation successfully",
+            "recommended crop":recommended_crop
+        }
+    else:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
+                            detail="Bad request")
+        

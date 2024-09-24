@@ -11,7 +11,3 @@ class User(BaseModel):
     password: str
     created_at: Optional[datetime]=datetime.now()
     
-    
-class Resource(BaseModel):
-    id: Optional[UUID]=uuid4
-    user_id: UUID
