@@ -14,15 +14,13 @@ def loadModel():
                             detail=e.args)
         
         
-def recommend_crop(n, p, k, temp, hum, ph, rf):
+def recommend_crop(n:float, p:float, k:float, temp:float, hum:float, ph:float, rf:float):
     input_data = [n, p, k, temp, hum, ph, rf]
     input_data_arr = np.asarray(input_data).reshape(1, -1)
-    
-    print(input_data)
-    
+        
     model=loadModel()
     
-    recommended_crop=model.predict(input_data_arr)
+    recommended_crop=model.predict(input_data_arr)[0]
     
     return recommended_crop
     
