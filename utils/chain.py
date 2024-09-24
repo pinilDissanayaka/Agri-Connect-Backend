@@ -15,8 +15,9 @@ llm = ChatGroq(model="llama3-8b-8192", temperature=0.7)
     
 def get_solution(disease:str):
     template ="""
-    You are an expert in plant pathology. I have a specific plant disease called {DISEASE}. 
-    Could you provide a detailed description of this disease, including symptoms, causes, affected plant species, and effective treatment methods? 
+    You are an expert in plant pathology. 
+    I have a specific plant disease called {DISEASE}. 
+    Could you provide a more detailed description of this disease, including symptoms, causes, affected plant species, and effective treatment methods? 
     Please focus on both chemical and natural remedies for treatment, and mention any preventive measures that can be taken.
     If you can make a answer in the sinhala and tamil language.
     """
