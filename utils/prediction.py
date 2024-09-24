@@ -1,13 +1,12 @@
 import os
 import pickle
-from fastapi import UploadFile
+from fastapi import UploadFile, HTTPException, status
+from tensorflow import keras
 from tensorflow.keras.models import load_model
 from tensorflow.keras import utils as kerasUtils
-from PIL import Image
-from werkzeug.utils import secure_filename
 import numpy as np
 import logging
-from tempfile import TemporaryDirectory
+from tempfile import TemporaryFile
 import warnings
 
 
@@ -26,11 +25,12 @@ def loadModel():
         with open('model_labels.pkl', 'rb') as labelPickle:
             modelLabels=pickle.load(labelPickle)[0]
             
-        model=load_model('model.h5')
+        model=load_model('model.keras')
         
         return modelLabels, model
     except Exception as e:
-        logging.exception(e)
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
+                            detail=e.args)
         
         
 def preprocessImage(imageFile):
@@ -40,31 +40,37 @@ def preprocessImage(imageFile):
         imageArray=np.expand_dims(imageArray, axis=0)
         return imageArray
     except Exception as e:
-        logging.exception(e)
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
+                            detail=e.args)
     
 def makePrediction(uploadedFile: UploadFile):
     try:
         modelLabels, model=loadModel()
         
-        temp_file_dir=TemporaryDirectory()
-        
-        imagePath=os.path.join(temp_file_dir.name, uploadedFile.filename)
-        
-        with open(imagePath, "wb") as img:
+        temp_file=uploadedFile.filename
+                
+        with open(temp_file, "wb") as img:
             img.write(uploadedFile.file.read())
-        
-        imageFile=kerasUtils.load_img(path=imagePath, target_size=(224, 224))
+            
+        imageFile=kerasUtils.load_img(path=temp_file, target_size=(224, 224))
         
         imageArray=preprocessImage(imageFile=imageFile)
         
+        print(imageArray)
+        
         prediction=model.predict(imageArray)
+        
+        print(prediction)
         
         confidence=round(100 * (np.max(prediction[0])), 2)
         
         prediction=modelLabels[np.argmax(prediction[0])]
-                
+        
         return prediction, confidence
     except Exception as e:
-        logging.exception(e)
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
+                            detail=e.args)
     finally:
-        temp_file_dir.cleanup()
+        if os.path.exists(temp_file):
+            os.remove(temp_file)
+        

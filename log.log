@@ -1,0 +1,561 @@
+ERROR:root:Error when deserializing class 'SeparableConv2D' using config={'name': 'block2_sepconv1', 'trainable': True, 'dtype': 'float32', 'filters': 128, 'kernel_size': [3, 3], 'strides': [1, 1], 'padding': 'same', 'data_format': 'channels_last', 'dilation_rate': [1, 1], 'groups': 1, 'activation': 'linear', 'use_bias': False, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'bias_initializer': {'module': 'keras.initializers', 'class_name': 'Zeros', 'config': {}, 'registered_name': None}, 'kernel_regularizer': None, 'bias_regularizer': None, 'activity_regularizer': None, 'kernel_constraint': None, 'bias_constraint': None, 'depth_multiplier': 1, 'depthwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'pointwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'depthwise_regularizer': None, 'pointwise_regularizer': None, 'depthwise_constraint': None, 'pointwise_constraint': None}.
+
+Exception encountered: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+Traceback (most recent call last):
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\ops\operation.py", line 234, in from_config
+    return cls(**config)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\convolutional\separable_conv2d.py", line 122, in __init__
+    super().__init__(
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\convolutional\base_separable_conv.py", line 104, in __init__
+    super().__init__(
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\layer.py", line 285, in __init__
+    raise ValueError(
+ValueError: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 29, in loadModel
+    model=load_model('model.h5')
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\saving\saving_api.py", line 194, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 133, in load_model_from_hdf5
+    model = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 495, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\model.py", line 525, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 477, in functional_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 457, in process_layer
+    layer = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 495, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\model.py", line 525, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 477, in functional_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 457, in process_layer
+    layer = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 504, in deserialize_keras_object
+    deserialized_obj = cls.from_config(cls_config)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\ops\operation.py", line 236, in from_config
+    raise TypeError(
+TypeError: Error when deserializing class 'SeparableConv2D' using config={'name': 'block2_sepconv1', 'trainable': True, 'dtype': 'float32', 'filters': 128, 'kernel_size': [3, 3], 'strides': [1, 1], 'padding': 'same', 'data_format': 'channels_last', 'dilation_rate': [1, 1], 'groups': 1, 'activation': 'linear', 'use_bias': False, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'bias_initializer': {'module': 'keras.initializers', 'class_name': 'Zeros', 'config': {}, 'registered_name': None}, 'kernel_regularizer': None, 'bias_regularizer': None, 'activity_regularizer': None, 'kernel_constraint': None, 'bias_constraint': None, 'depth_multiplier': 1, 'depthwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'pointwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'depthwise_regularizer': None, 'pointwise_regularizer': None, 'depthwise_constraint': None, 'pointwise_constraint': None}.
+
+Exception encountered: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+ERROR:root:cannot unpack non-iterable NoneType object
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 47, in makePrediction
+    modelLabels, model=loadModel()
+    ^^^^^^^^^^^^^^^^^^
+TypeError: cannot unpack non-iterable NoneType object
+ERROR:root:Error when deserializing class 'SeparableConv2D' using config={'name': 'block2_sepconv1', 'trainable': True, 'dtype': 'float32', 'filters': 128, 'kernel_size': [3, 3], 'strides': [1, 1], 'padding': 'same', 'data_format': 'channels_last', 'dilation_rate': [1, 1], 'groups': 1, 'activation': 'linear', 'use_bias': False, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'bias_initializer': {'module': 'keras.initializers', 'class_name': 'Zeros', 'config': {}, 'registered_name': None}, 'kernel_regularizer': None, 'bias_regularizer': None, 'activity_regularizer': None, 'kernel_constraint': None, 'bias_constraint': None, 'depth_multiplier': 1, 'depthwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'pointwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'depthwise_regularizer': None, 'pointwise_regularizer': None, 'depthwise_constraint': None, 'pointwise_constraint': None}.
+
+Exception encountered: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+Traceback (most recent call last):
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\ops\operation.py", line 234, in from_config
+    return cls(**config)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\convolutional\separable_conv2d.py", line 122, in __init__
+    super().__init__(
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\convolutional\base_separable_conv.py", line 104, in __init__
+    super().__init__(
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\layer.py", line 285, in __init__
+    raise ValueError(
+ValueError: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 29, in loadModel
+    model=load_model('model.h5')
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\saving\saving_api.py", line 194, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 133, in load_model_from_hdf5
+    model = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 495, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\model.py", line 525, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 477, in functional_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 457, in process_layer
+    layer = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 495, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\model.py", line 525, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 477, in functional_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 457, in process_layer
+    layer = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 504, in deserialize_keras_object
+    deserialized_obj = cls.from_config(cls_config)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\ops\operation.py", line 236, in from_config
+    raise TypeError(
+TypeError: Error when deserializing class 'SeparableConv2D' using config={'name': 'block2_sepconv1', 'trainable': True, 'dtype': 'float32', 'filters': 128, 'kernel_size': [3, 3], 'strides': [1, 1], 'padding': 'same', 'data_format': 'channels_last', 'dilation_rate': [1, 1], 'groups': 1, 'activation': 'linear', 'use_bias': False, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'bias_initializer': {'module': 'keras.initializers', 'class_name': 'Zeros', 'config': {}, 'registered_name': None}, 'kernel_regularizer': None, 'bias_regularizer': None, 'activity_regularizer': None, 'kernel_constraint': None, 'bias_constraint': None, 'depth_multiplier': 1, 'depthwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'pointwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'depthwise_regularizer': None, 'pointwise_regularizer': None, 'depthwise_constraint': None, 'pointwise_constraint': None}.
+
+Exception encountered: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+ERROR:root:cannot unpack non-iterable NoneType object
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 47, in makePrediction
+    modelLabels, model=loadModel()
+    ^^^^^^^^^^^^^^^^^^
+TypeError: cannot unpack non-iterable NoneType object
+ERROR:root:Error when deserializing class 'SeparableConv2D' using config={'name': 'block2_sepconv1', 'trainable': True, 'dtype': 'float32', 'filters': 128, 'kernel_size': [3, 3], 'strides': [1, 1], 'padding': 'same', 'data_format': 'channels_last', 'dilation_rate': [1, 1], 'groups': 1, 'activation': 'linear', 'use_bias': False, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'bias_initializer': {'module': 'keras.initializers', 'class_name': 'Zeros', 'config': {}, 'registered_name': None}, 'kernel_regularizer': None, 'bias_regularizer': None, 'activity_regularizer': None, 'kernel_constraint': None, 'bias_constraint': None, 'depth_multiplier': 1, 'depthwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'pointwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'depthwise_regularizer': None, 'pointwise_regularizer': None, 'depthwise_constraint': None, 'pointwise_constraint': None}.
+
+Exception encountered: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+Traceback (most recent call last):
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\ops\operation.py", line 234, in from_config
+    return cls(**config)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\convolutional\separable_conv2d.py", line 122, in __init__
+    super().__init__(
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\convolutional\base_separable_conv.py", line 104, in __init__
+    super().__init__(
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\layer.py", line 285, in __init__
+    raise ValueError(
+ValueError: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 29, in loadModel
+    model=load_model('model.h5')
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\saving\saving_api.py", line 194, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 133, in load_model_from_hdf5
+    model = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 495, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\model.py", line 525, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 477, in functional_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 457, in process_layer
+    layer = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 495, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\model.py", line 525, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 477, in functional_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 457, in process_layer
+    layer = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 504, in deserialize_keras_object
+    deserialized_obj = cls.from_config(cls_config)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\ops\operation.py", line 236, in from_config
+    raise TypeError(
+TypeError: Error when deserializing class 'SeparableConv2D' using config={'name': 'block2_sepconv1', 'trainable': True, 'dtype': 'float32', 'filters': 128, 'kernel_size': [3, 3], 'strides': [1, 1], 'padding': 'same', 'data_format': 'channels_last', 'dilation_rate': [1, 1], 'groups': 1, 'activation': 'linear', 'use_bias': False, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'bias_initializer': {'module': 'keras.initializers', 'class_name': 'Zeros', 'config': {}, 'registered_name': None}, 'kernel_regularizer': None, 'bias_regularizer': None, 'activity_regularizer': None, 'kernel_constraint': None, 'bias_constraint': None, 'depth_multiplier': 1, 'depthwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'pointwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'depthwise_regularizer': None, 'pointwise_regularizer': None, 'depthwise_constraint': None, 'pointwise_constraint': None}.
+
+Exception encountered: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+ERROR:root:cannot unpack non-iterable NoneType object
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 47, in makePrediction
+    modelLabels, model=loadModel()
+    ^^^^^^^^^^^^^^^^^^
+TypeError: cannot unpack non-iterable NoneType object
+ERROR:root:Error when deserializing class 'SeparableConv2D' using config={'name': 'block2_sepconv1', 'trainable': True, 'dtype': 'float32', 'filters': 128, 'kernel_size': [3, 3], 'strides': [1, 1], 'padding': 'same', 'data_format': 'channels_last', 'dilation_rate': [1, 1], 'groups': 1, 'activation': 'linear', 'use_bias': False, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'bias_initializer': {'module': 'keras.initializers', 'class_name': 'Zeros', 'config': {}, 'registered_name': None}, 'kernel_regularizer': None, 'bias_regularizer': None, 'activity_regularizer': None, 'kernel_constraint': None, 'bias_constraint': None, 'depth_multiplier': 1, 'depthwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'pointwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'depthwise_regularizer': None, 'pointwise_regularizer': None, 'depthwise_constraint': None, 'pointwise_constraint': None}.
+
+Exception encountered: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+Traceback (most recent call last):
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\ops\operation.py", line 234, in from_config
+    return cls(**config)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\convolutional\separable_conv2d.py", line 122, in __init__
+    super().__init__(
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\convolutional\base_separable_conv.py", line 104, in __init__
+    super().__init__(
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\layer.py", line 285, in __init__
+    raise ValueError(
+ValueError: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 29, in loadModel
+    model=load_model('model.h5')
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\saving\saving_api.py", line 194, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 133, in load_model_from_hdf5
+    model = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 495, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\model.py", line 525, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 477, in functional_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 457, in process_layer
+    layer = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 495, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\model.py", line 525, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 477, in functional_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 457, in process_layer
+    layer = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 504, in deserialize_keras_object
+    deserialized_obj = cls.from_config(cls_config)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\ops\operation.py", line 236, in from_config
+    raise TypeError(
+TypeError: Error when deserializing class 'SeparableConv2D' using config={'name': 'block2_sepconv1', 'trainable': True, 'dtype': 'float32', 'filters': 128, 'kernel_size': [3, 3], 'strides': [1, 1], 'padding': 'same', 'data_format': 'channels_last', 'dilation_rate': [1, 1], 'groups': 1, 'activation': 'linear', 'use_bias': False, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'bias_initializer': {'module': 'keras.initializers', 'class_name': 'Zeros', 'config': {}, 'registered_name': None}, 'kernel_regularizer': None, 'bias_regularizer': None, 'activity_regularizer': None, 'kernel_constraint': None, 'bias_constraint': None, 'depth_multiplier': 1, 'depthwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'pointwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'depthwise_regularizer': None, 'pointwise_regularizer': None, 'depthwise_constraint': None, 'pointwise_constraint': None}.
+
+Exception encountered: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+ERROR:root:cannot unpack non-iterable NoneType object
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 47, in makePrediction
+    modelLabels, model=loadModel()
+    ^^^^^^^^^^^^^^^^^^
+TypeError: cannot unpack non-iterable NoneType object
+ERROR:root:Error when deserializing class 'SeparableConv2D' using config={'name': 'block2_sepconv1', 'trainable': True, 'dtype': 'float32', 'filters': 128, 'kernel_size': [3, 3], 'strides': [1, 1], 'padding': 'same', 'data_format': 'channels_last', 'dilation_rate': [1, 1], 'groups': 1, 'activation': 'linear', 'use_bias': False, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'bias_initializer': {'module': 'keras.initializers', 'class_name': 'Zeros', 'config': {}, 'registered_name': None}, 'kernel_regularizer': None, 'bias_regularizer': None, 'activity_regularizer': None, 'kernel_constraint': None, 'bias_constraint': None, 'depth_multiplier': 1, 'depthwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'pointwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'depthwise_regularizer': None, 'pointwise_regularizer': None, 'depthwise_constraint': None, 'pointwise_constraint': None}.
+
+Exception encountered: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+Traceback (most recent call last):
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\ops\operation.py", line 234, in from_config
+    return cls(**config)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\convolutional\separable_conv2d.py", line 122, in __init__
+    super().__init__(
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\convolutional\base_separable_conv.py", line 104, in __init__
+    super().__init__(
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\layer.py", line 285, in __init__
+    raise ValueError(
+ValueError: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 29, in loadModel
+    model=load_model('model.h5')
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\saving\saving_api.py", line 194, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 133, in load_model_from_hdf5
+    model = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 495, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\model.py", line 525, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 477, in functional_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 457, in process_layer
+    layer = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 495, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\model.py", line 525, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 477, in functional_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 457, in process_layer
+    layer = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 504, in deserialize_keras_object
+    deserialized_obj = cls.from_config(cls_config)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\ops\operation.py", line 236, in from_config
+    raise TypeError(
+TypeError: Error when deserializing class 'SeparableConv2D' using config={'name': 'block2_sepconv1', 'trainable': True, 'dtype': 'float32', 'filters': 128, 'kernel_size': [3, 3], 'strides': [1, 1], 'padding': 'same', 'data_format': 'channels_last', 'dilation_rate': [1, 1], 'groups': 1, 'activation': 'linear', 'use_bias': False, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'bias_initializer': {'module': 'keras.initializers', 'class_name': 'Zeros', 'config': {}, 'registered_name': None}, 'kernel_regularizer': None, 'bias_regularizer': None, 'activity_regularizer': None, 'kernel_constraint': None, 'bias_constraint': None, 'depth_multiplier': 1, 'depthwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'pointwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'depthwise_regularizer': None, 'pointwise_regularizer': None, 'depthwise_constraint': None, 'pointwise_constraint': None}.
+
+Exception encountered: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+ERROR:root:cannot unpack non-iterable NoneType object
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 47, in makePrediction
+    modelLabels, model=loadModel()
+    ^^^^^^^^^^^^^^^^^^
+TypeError: cannot unpack non-iterable NoneType object
+ERROR:root:Error when deserializing class 'SeparableConv2D' using config={'name': 'block2_sepconv1', 'trainable': True, 'dtype': 'float32', 'filters': 128, 'kernel_size': [3, 3], 'strides': [1, 1], 'padding': 'same', 'data_format': 'channels_last', 'dilation_rate': [1, 1], 'groups': 1, 'activation': 'linear', 'use_bias': False, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'bias_initializer': {'module': 'keras.initializers', 'class_name': 'Zeros', 'config': {}, 'registered_name': None}, 'kernel_regularizer': None, 'bias_regularizer': None, 'activity_regularizer': None, 'kernel_constraint': None, 'bias_constraint': None, 'depth_multiplier': 1, 'depthwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'pointwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'depthwise_regularizer': None, 'pointwise_regularizer': None, 'depthwise_constraint': None, 'pointwise_constraint': None}.
+
+Exception encountered: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+Traceback (most recent call last):
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\ops\operation.py", line 234, in from_config
+    return cls(**config)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\convolutional\separable_conv2d.py", line 122, in __init__
+    super().__init__(
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\convolutional\base_separable_conv.py", line 104, in __init__
+    super().__init__(
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\layer.py", line 285, in __init__
+    raise ValueError(
+ValueError: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 29, in loadModel
+    model=load_model('model.h5')
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\saving\saving_api.py", line 194, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 133, in load_model_from_hdf5
+    model = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 495, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\model.py", line 525, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 477, in functional_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 457, in process_layer
+    layer = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 495, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\model.py", line 525, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 477, in functional_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 457, in process_layer
+    layer = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 504, in deserialize_keras_object
+    deserialized_obj = cls.from_config(cls_config)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\ops\operation.py", line 236, in from_config
+    raise TypeError(
+TypeError: Error when deserializing class 'SeparableConv2D' using config={'name': 'block2_sepconv1', 'trainable': True, 'dtype': 'float32', 'filters': 128, 'kernel_size': [3, 3], 'strides': [1, 1], 'padding': 'same', 'data_format': 'channels_last', 'dilation_rate': [1, 1], 'groups': 1, 'activation': 'linear', 'use_bias': False, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'bias_initializer': {'module': 'keras.initializers', 'class_name': 'Zeros', 'config': {}, 'registered_name': None}, 'kernel_regularizer': None, 'bias_regularizer': None, 'activity_regularizer': None, 'kernel_constraint': None, 'bias_constraint': None, 'depth_multiplier': 1, 'depthwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'pointwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'depthwise_regularizer': None, 'pointwise_regularizer': None, 'depthwise_constraint': None, 'pointwise_constraint': None}.
+
+Exception encountered: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+ERROR:root:cannot unpack non-iterable NoneType object
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 47, in makePrediction
+    modelLabels, model=loadModel()
+    ^^^^^^^^^^^^^^^^^^
+TypeError: cannot unpack non-iterable NoneType object
+ERROR:root:Error when deserializing class 'SeparableConv2D' using config={'name': 'block2_sepconv1', 'trainable': True, 'dtype': 'float32', 'filters': 128, 'kernel_size': [3, 3], 'strides': [1, 1], 'padding': 'same', 'data_format': 'channels_last', 'dilation_rate': [1, 1], 'groups': 1, 'activation': 'linear', 'use_bias': False, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'bias_initializer': {'module': 'keras.initializers', 'class_name': 'Zeros', 'config': {}, 'registered_name': None}, 'kernel_regularizer': None, 'bias_regularizer': None, 'activity_regularizer': None, 'kernel_constraint': None, 'bias_constraint': None, 'depth_multiplier': 1, 'depthwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'pointwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'depthwise_regularizer': None, 'pointwise_regularizer': None, 'depthwise_constraint': None, 'pointwise_constraint': None}.
+
+Exception encountered: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+Traceback (most recent call last):
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\ops\operation.py", line 234, in from_config
+    return cls(**config)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\convolutional\separable_conv2d.py", line 122, in __init__
+    super().__init__(
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\convolutional\base_separable_conv.py", line 104, in __init__
+    super().__init__(
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\layers\layer.py", line 285, in __init__
+    raise ValueError(
+ValueError: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 29, in loadModel
+    model=load_model('model.h5')
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\saving\saving_api.py", line 194, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 133, in load_model_from_hdf5
+    model = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 495, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\model.py", line 525, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 477, in functional_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 457, in process_layer
+    layer = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 495, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\model.py", line 525, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 477, in functional_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\models\functional.py", line 457, in process_layer
+    layer = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 85, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 504, in deserialize_keras_object
+    deserialized_obj = cls.from_config(cls_config)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\keras\src\ops\operation.py", line 236, in from_config
+    raise TypeError(
+TypeError: Error when deserializing class 'SeparableConv2D' using config={'name': 'block2_sepconv1', 'trainable': True, 'dtype': 'float32', 'filters': 128, 'kernel_size': [3, 3], 'strides': [1, 1], 'padding': 'same', 'data_format': 'channels_last', 'dilation_rate': [1, 1], 'groups': 1, 'activation': 'linear', 'use_bias': False, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'bias_initializer': {'module': 'keras.initializers', 'class_name': 'Zeros', 'config': {}, 'registered_name': None}, 'kernel_regularizer': None, 'bias_regularizer': None, 'activity_regularizer': None, 'kernel_constraint': None, 'bias_constraint': None, 'depth_multiplier': 1, 'depthwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'pointwise_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'depthwise_regularizer': None, 'pointwise_regularizer': None, 'depthwise_constraint': None, 'pointwise_constraint': None}.
+
+Exception encountered: Unrecognized keyword arguments passed to SeparableConv2D: {'groups': 1, 'kernel_initializer': {'module': 'keras.initializers', 'class_name': 'GlorotUniform', 'config': {'seed': None}, 'registered_name': None}, 'kernel_regularizer': None, 'kernel_constraint': None}
+ERROR:root:cannot unpack non-iterable NoneType object
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 47, in makePrediction
+    modelLabels, model=loadModel()
+    ^^^^^^^^^^^^^^^^^^
+TypeError: cannot unpack non-iterable NoneType object
+ERROR:root:Unknown layer: BatchNormalization. Please ensure this object is passed to the `custom_objects` argument. See https://www.tensorflow.org/guide/keras/save_and_serialize#registering_the_custom_object for details.
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 29, in loadModel
+    model=load_model('model.h5')
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\saving\save.py", line 197, in load_model
+    return hdf5_format.load_model_from_hdf5(filepath, custom_objects,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\saving\hdf5_format.py", line 180, in load_model_from_hdf5
+    model = model_config_lib.model_from_config(model_config,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\saving\model_config.py", line 50, in model_from_config
+    return deserialize(config, custom_objects=custom_objects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\layers\serialization.py", line 113, in deserialize
+    return generic_utils.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\utils\generic_utils.py", line 665, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\engine\functional.py", line 668, in from_config
+    input_tensors, output_tensors, created_layers = reconstruct_from_config(
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\engine\functional.py", line 1279, in reconstruct_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\engine\functional.py", line 1261, in process_layer
+    layer = deserialize_layer(layer_data, custom_objects=custom_objects)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\layers\serialization.py", line 113, in deserialize
+    return generic_utils.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\utils\generic_utils.py", line 665, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\engine\functional.py", line 668, in from_config
+    input_tensors, output_tensors, created_layers = reconstruct_from_config(
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\engine\functional.py", line 1279, in reconstruct_from_config
+    process_layer(layer_data)
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\engine\functional.py", line 1261, in process_layer
+    layer = deserialize_layer(layer_data, custom_objects=custom_objects)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\layers\serialization.py", line 113, in deserialize
+    return generic_utils.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\utils\generic_utils.py", line 650, in deserialize_keras_object
+    (cls, cls_config) = class_and_config_for_serialized_keras_object(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pinil\anaconda3\Lib\site-packages\tensorflow\python\keras\utils\generic_utils.py", line 548, in class_and_config_for_serialized_keras_object
+    raise ValueError(
+ValueError: Unknown layer: BatchNormalization. Please ensure this object is passed to the `custom_objects` argument. See https://www.tensorflow.org/guide/keras/save_and_serialize#registering_the_custom_object for details.
+ERROR:root:cannot unpack non-iterable NoneType object
+Traceback (most recent call last):
+  File "c:\Users\Pinil\Desktop\Agri-Connect-Backend\utils\prediction.py", line 47, in makePrediction
+    modelLabels, model=loadModel()
+    ^^^^^^^^^^^^^^^^^^
+TypeError: cannot unpack non-iterable NoneType object

@@ -2,3 +2,4 @@
 venv
 model_labels.pkl
 model.h5
+model.keras

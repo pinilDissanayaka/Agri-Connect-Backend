@@ -9,7 +9,8 @@ pinecone
 langchain_core
 unstructured
 langchain_groq
-rank_bm25
 pydantic[email]
 tensorflow
 python-multipart
+mysql-connector-python
+bcrypt

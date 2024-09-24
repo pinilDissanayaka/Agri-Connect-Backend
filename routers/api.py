@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, status, UploadFile
 from schema.user import User
 from crud.user import createUser, getUserByUserName
-#from utils.prediction import makePrediction
+from utils.prediction import makePrediction
 from utils.chain import get_solution
 
 app=FastAPI()
@@ -30,11 +30,11 @@ async def login(user_name:str, password:str):
 
 @app.post("/prediction", tags=["User"])
 async def prediction(imageFile: UploadFile):
-    #disease, confidence=makePrediction(uploadedFile=imageFile)
+    disease, confidence=makePrediction(uploadedFile=imageFile)
     
-    disease, confidence="brown-spot", 98
+    #disease, confidence="brown-spot", 98
 
-    solution=get_solution(disease=prediction)
+    solution=get_solution(disease=disease)
     
     if disease and confidence and solution:
         return {
