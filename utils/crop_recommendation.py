@@ -4,13 +4,13 @@ from fastapi import status, HTTPException
 
 def loadModel():
     try:
-        with open('crop_recommendation.pickle', 'rb') as model:
+        with open("crop_recommendation.pickle", 'rb') as model:
             model=pickle.load(model)
         
         
         return model
     except Exception as e:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=e.args)
         
         

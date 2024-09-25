@@ -22,14 +22,14 @@ os.environ['TF_ENABLE_ONEDNN_OPTS']='0'
     
 def loadModel():
     try:
-        with open('model_labels.pkl', 'rb') as labelPickle:
-            modelLabels=pickle.load(labelPickle)[0]
+        with open('model_labels.pkl', 'rb') as file:
+            modelLabels=pickle.load(file)[0]
             
         model=load_model('model.keras')
         
         return modelLabels, model
     except Exception as e:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=e.args)
         
         
@@ -54,6 +54,9 @@ def makePrediction(uploadedFile: UploadFile):
             
         imageFile=kerasUtils.load_img(path=temp_file, target_size=(224, 224))
         
+        if os.path.exists(temp_file):
+            os.remove(temp_file)
+        
         imageArray=preprocessImage(imageFile=imageFile)
         
         print(imageArray)
@@ -70,7 +73,5 @@ def makePrediction(uploadedFile: UploadFile):
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
                             detail=e.args)
-    finally:
-        if os.path.exists(temp_file):
-            os.remove(temp_file)
+        
         

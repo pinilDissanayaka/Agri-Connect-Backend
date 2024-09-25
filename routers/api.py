@@ -62,3 +62,12 @@ async def crop_recommendation(n:float, p:float, k:float, temp:float, hum:float, 
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
                             detail="Bad request")
         
+@app.post("/get-user", tags=["User"])
+async def crop_recommendation():
+    if True:
+        pass
+    
+    else:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
+                            detail="Bad request")
+        
