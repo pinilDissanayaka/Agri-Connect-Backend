@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, status, UploadFile
+from fastapi import FastAPI, HTTPException, status, UploadFile, Body
 from schema.user import User
 from crud.user import createUser, getUserByUserName
 from utils.prediction import makePrediction
@@ -17,7 +17,7 @@ async def register(user:User):
         
         
 @app.post("/login", tags=['User', 'Admin'])
-async def login(user_name:str, password:str):
+async def login(user_name: str = Body(...), password: str = Body(...)):
     _status=getUserByUserName(userName=user_name, rowPassword=password)
     
     if _status == 200:
